@@ -11,18 +11,19 @@ module.exports = {
         contentBase: './public'
     },
     module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env', 'react'],
-                        plugins: ['transform-object-rest-spread']
-                    }
+        rules: [{
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'react'],
+                    plugins: ['transform-object-rest-spread']
                 }
             }
-        ]
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }]
     }
 }
