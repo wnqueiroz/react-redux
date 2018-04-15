@@ -1,0 +1,5 @@
+node_modules
+*.log
+.vscode
+package-lock.json
+exercicios_webpack/package-lock.json
