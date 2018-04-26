@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import PageHeader from '../template/pageHeader'
 import TodoForm from './todoForm'
-import TodoList from './todoList'
+import TodoList from '../containers/todoList'
 
 const URL = 'http://localhost:3003/api/todos'
 
