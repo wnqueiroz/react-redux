@@ -13,13 +13,13 @@ export default class TodoForm extends React.Component {
     }
 
     keyHandler(e) {
-        const { add, search, description } = this.props
+        const { add, search, clear, description } = this.props
         switch (e.key) {
             case 'Enter':
                 e.shiftKey ? search() : add(description)
                 break;
             case 'Escape':
-                this.props.handleClear()
+                clear()
                 break;
         }
     }
@@ -37,7 +37,7 @@ export default class TodoForm extends React.Component {
                 <Grid cols='12 3 2'>
                     <IconButton style='primary' icon='plus' onClick={() => add(description)} />
                     <IconButton style='info' icon='search' onClick={() => search()} />
-                    <IconButton style='default' icon='close' onClick={this.props.handleClear} />
+                    <IconButton style='default' icon='close' onClick={this.props.clear} />
                 </Grid>
             </div>
         )
