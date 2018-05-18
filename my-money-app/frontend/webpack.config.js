@@ -12,11 +12,11 @@ module.exports = {
         contentBase: './public'
     },
     resolve: {
-        extensions: ['', 'js', 'jsx'],
+        extensions: ['', '.js', '.jsx'],
         alias: {
             modules: __dirname + '/node_modules',
-            jquery: __dirname + '/modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
-            bootstrap: __dirname + '/modules/admin-lte/bootstrap/js/bootstrap.js'
+            jquery: 'modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
+            bootstrap: 'modules/admin-lte/bootstrap/js/bootstrap.js'
         }
     },
     plugins: [
