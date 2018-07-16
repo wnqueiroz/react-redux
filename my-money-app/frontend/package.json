@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline --hot",
-    "production": "webpack --progress -p"
+    "dev": "yarn start-backend && webpack-dev-server --progress --colors --inline --hot",
+    "production": "webpack --progress -p",
+    "up-container": "docker container start d390495f9d1d",
+    "start-backend": "yarn up-container && cd ../backend && yarn production"
   },
   "keywords": [],
   "author": "",
