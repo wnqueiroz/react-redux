@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 
+import If from '../operator/if'
+
 class TabContent extends Component {
     render() {
         const { id, children, tab } = this.props
+        const visible = tab.visible[id]
 
         return (
-            <div id={id} className={`tab-pane ${tab.selected === id ? 'active' : ''}`}>
-                {children}
-            </div>
+            <If test={visible}>
+                <div id={id} className={`tab-pane ${tab.selected === id ? 'active' : ''}`}>
+                    {children}
+                </div>
+            </If>
         )
     }
 }
