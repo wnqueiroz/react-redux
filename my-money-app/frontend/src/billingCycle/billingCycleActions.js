@@ -4,7 +4,7 @@ import { toastr } from 'react-redux-toastr'
 import { reset as resetForm } from 'redux-form'
 import { showtabs, selectTab } from '../common/tab/tabActions'
 
-import { tabs } from './billingCycle'
+import billingCycle, { tabs } from './billingCycle'
 
 const BASE_URL = 'http://localhost:3003/api'
 
@@ -15,6 +15,7 @@ export const getList = () => {
         payload: request
     }
 }
+
 export const create = values => {
     return dispatch => {
 
@@ -31,4 +32,10 @@ export const create = values => {
             .catch(error => error.response.data.errors.forEach(error => toastr.error('Erro', error)))
 
     }
+}
+export const showUpdate = billingCycle => {
+    return [
+        showtabs(tabs.TAB_UPDATE),
+        selectTab(tabs.TAB_UPDATE)
+    ]
 }
