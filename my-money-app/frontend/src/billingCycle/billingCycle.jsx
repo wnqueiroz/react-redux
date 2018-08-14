@@ -17,7 +17,7 @@ import Form from './billingCycleForm'
 import { selectTab, showtabs } from '../common/tab/tabActions'
 import { create } from './billingCycleActions'
 
-const tabs = {
+export const tabs = {
     TAB_LIST: 'TAB_LIST',
     TAB_CREATE: 'TAB_CREATE',
     TAB_UPDATE: 'TAB_UPDATE',
