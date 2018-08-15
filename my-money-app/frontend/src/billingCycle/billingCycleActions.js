@@ -11,6 +11,8 @@ import { tabs } from './billingCycle'
 
 const BASE_URL = 'http://localhost:3003/api'
 
+const INITIAL_VALUES = {}
+
 export const getList = () => {
     const request = axios.get(`${BASE_URL}/billingCycles`)
     return {
@@ -25,12 +27,7 @@ export const create = values => {
         axios.post(`${BASE_URL}/billingCycles`, values)
             .then(() => {
                 toastr.success('Sucesso', 'Operação realizada com sucesso.')
-                dispatch([
-                    resetForm('billingCycleForm'),
-                    getList(),
-                    selectTab(tabs.TAB_LIST),
-                    showtabs(tabs.TAB_LIST, tabs.TAB_CREATE)
-                ])
+                dispatch(init())
             })
             .catch(error => error.response.data.errors.forEach(error => toastr.error('Erro', error)))
 
@@ -41,5 +38,14 @@ export const showUpdate = billingCycle => {
         showtabs(tabs.TAB_UPDATE),
         selectTab(tabs.TAB_UPDATE),
         initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export const init = () => {
+    return [
+        showtabs(tabs.TAB_LIST, tabs.TAB_CREATE),
+        selectTab(tabs.TAB_LIST),
+        getList(),
+        initialize('billingCycleForm', INITIAL_VALUES)
     ]
 }
