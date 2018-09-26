@@ -25,6 +25,8 @@ export const create = values => submit(values, 'post')
 
 export const update = values => submit(values, 'put')
 
+export const remove = values => submit(values, 'delete')
+
 const submit = (values, method) => {
     return dispatch => {
         const { _id: id = '' } = values
@@ -42,6 +44,14 @@ export const showUpdate = billingCycle => {
     return [
         showtabs(tabs.TAB_UPDATE),
         selectTab(tabs.TAB_UPDATE),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export const showDelete = billingCycle => {
+    return [
+        showtabs(tabs.TAB_DELETE),
+        selectTab(tabs.TAB_DELETE),
         initialize('billingCycleForm', billingCycle)
     ]
 }
