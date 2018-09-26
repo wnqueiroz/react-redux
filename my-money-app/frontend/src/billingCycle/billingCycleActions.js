@@ -21,10 +21,14 @@ export const getList = () => {
     }
 }
 
-export const create = values => {
-    return dispatch => {
+export const create = values => submit(values, 'post')
 
-        axios.post(`${BASE_URL}/billingCycles`, values)
+export const update = values => submit(values, 'put')
+
+const submit = (values, method) => {
+    return dispatch => {
+        const { _id: id = '' } = values
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
             .then(() => {
                 toastr.success('Sucesso', 'Operação realizada com sucesso.')
                 dispatch(init())
@@ -33,6 +37,7 @@ export const create = values => {
 
     }
 }
+
 export const showUpdate = billingCycle => {
     return [
         showtabs(tabs.TAB_UPDATE),
