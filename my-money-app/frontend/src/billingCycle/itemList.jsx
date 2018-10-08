@@ -6,26 +6,26 @@ import Grid from '../common/layout/grid'
 import Input from '../common/form/input'
 import { form as formName } from './billingCycleForm'
 
-class CreditList extends Component {
+class ItemList extends Component {
 
     add = (index, item = {}) => {
-        const { readOnly = false, arrayInsert } = this.props
-        if (!readOnly) arrayInsert(formName, 'credits', index, item)
+        const { readOnly = false, arrayInsert, field } = this.props
+        if (!readOnly) arrayInsert(formName, field, index, item)
     }
 
     remove = index => {
-        const { readOnly = false, list = [], arrayRemove } = this.props
-        if (!readOnly && list.length > 1) arrayRemove(formName, 'credits', index)
+        const { readOnly = false, list = [], arrayRemove, field } = this.props
+        if (!readOnly && list.length > 1) arrayRemove(formName, field, index)
     }
 
     renderRows = () => {
-        const { list = [] } = this.props
+        const { list = [], field } = this.props
 
         return list.map((item, index) => (
             <tr key={index}>
                 <td>
                     <Field
-                        name={`credits[${index}].name`}
+                        name={`${field}[${index}].name`}
                         component={Input}
                         placeholder='informe o nome'
                         readOnly={this.props.readOnly}
@@ -33,7 +33,7 @@ class CreditList extends Component {
                 </td>
                 <td>
                     <Field
-                        name={`credits[${index}].value`}
+                        name={`${field}[${index}].value`}
                         component={Input}
                         placeholder='informe o valor'
                         readOnly={this.props.readOnly}
@@ -67,11 +67,11 @@ class CreditList extends Component {
     }
 
     render() {
-        const { cols } = this.props
+        const { cols, legend } = this.props
         return (
             <Grid cols={cols}>
                 <fieldset>
-                    <legend>Créditos</legend>
+                    <legend>{legend}</legend>
                     <table className="table">
                         <thead>
                             <tr>
@@ -93,4 +93,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     arrayRemove
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(CreditList)
+export default connect(null, mapDispatchToProps)(ItemList)
