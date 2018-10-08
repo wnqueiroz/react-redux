@@ -4,7 +4,10 @@ import { bindActionCreators } from 'redux'
 import { Field, arrayInsert, arrayRemove } from 'redux-form'
 import Grid from '../common/layout/grid'
 import Input from '../common/form/input'
+
 import { form as formName } from './billingCycleForm'
+
+import If from '../common/operator/if'
 
 class ItemList extends Component {
 
@@ -19,7 +22,7 @@ class ItemList extends Component {
     }
 
     renderRows = () => {
-        const { list = [], field } = this.props
+        const { list = [], field, showStatus } = this.props
 
         return list.map((item, index) => (
             <tr key={index}>
@@ -39,6 +42,16 @@ class ItemList extends Component {
                         readOnly={this.props.readOnly}
                     />
                 </td>
+                <If test={showStatus}>
+                    <td>
+                        <Field
+                            name={`${field}[${index}].status`}
+                            component={Input}
+                            placeholder='informe o status'
+                            readOnly={this.props.readOnly}
+                        />
+                    </td>
+                </If>
                 <td>
                     <button
                         className='btn btn-success'
@@ -67,7 +80,7 @@ class ItemList extends Component {
     }
 
     render() {
-        const { cols, legend } = this.props
+        const { cols, legend, showStatus } = this.props
         return (
             <Grid cols={cols}>
                 <fieldset>
@@ -77,6 +90,9 @@ class ItemList extends Component {
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
+                                <If test={showStatus}>
+                                    <th>Status</th>
+                                </If>
                                 <th className='table-actions'>Ações</th>
                             </tr>
                         </thead>
