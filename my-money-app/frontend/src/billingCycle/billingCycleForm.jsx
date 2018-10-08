@@ -55,7 +55,7 @@ class BillingCycleForm extends Component {
     }
 }
 
-const form = 'billingCycleForm'
+export const form = 'billingCycleForm'
 
 BillingCycleForm = reduxForm({ form, destroyOnUnmount: false })(BillingCycleForm)
 
