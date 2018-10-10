@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "yarn start-backend && webpack-dev-server --progress --colors --inline --hot",
     "production": "webpack --progress -p",
-    "up-container": "docker container start $(docker ps -aqf 'name=react-redux-mongo')",
-    "start-backend": "yarn up-container && cd ../backend && yarn production"
+    "start-backend": "cd ../backend && yarn up-container && yarn production"
   },
   "keywords": [],
   "author": "",

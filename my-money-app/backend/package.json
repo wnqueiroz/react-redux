@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/loader.js",
   "scripts": {
-    "dev": "nodemon",
-    "production": "pm2 start src/loader.js --name my-money-backend -f"
+    "dev": "yarn up-container && nodemon",
+    "production": "yarn up-container && pm2 start src/loader.js --name my-money-backend -f",
+    "up-container": "docker container start $(docker ps -aqf 'name=react-redux-mongo')"
   },
   "keywords": [],
   "author": "",
