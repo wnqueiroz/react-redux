@@ -1,9 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import First from './components/FirstComponent'
+import { CompA, CompB } from './components/TwoComponents'
 
 ReactDOM.render(
-  <First value="Good Morning!" isLegal />,
+  <>
+    <CompA value="Hi! I'm A!" />
+    <CompB value="Hi! I'm B!" />
+  </>,
   document.getElementById('root')
 )
