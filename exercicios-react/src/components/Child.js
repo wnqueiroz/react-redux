@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({ name, lastname }) => (
-  <div>
+  <li>
     {name} <strong>{lastname}</strong>
-  </div>
+  </li>
 )
