@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import MultiElements from './components/MultiElements'
+import Family from './components/Family'
 
-ReactDOM.render(<MultiElements />, document.getElementById('root'))
+ReactDOM.render(<Family />, document.getElementById('root'))
