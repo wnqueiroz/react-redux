@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Parent from './components/Parent'
+import { ClassComponent } from './components/ClassComponent'
 
-ReactDOM.render(<Parent />, document.getElementById('root'))
+ReactDOM.render(
+  <ClassComponent value="Hi! Class!" />,
+  document.getElementById('root')
+)
