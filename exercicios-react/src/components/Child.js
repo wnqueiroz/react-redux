@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default ({ name, lastname }) => (
-  <li>
-    {name} <strong>{lastname}</strong>
-  </li>
+export default ({ notifyExit }) => (
+  <div>
+    <button type="button" onClick={() => notifyExit('Shopping')}>
+      Vou sair
+    </button>
+  </div>
 )

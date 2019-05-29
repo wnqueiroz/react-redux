@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import WithFunction from './components/WithFunction'
+import Parent from './components/Parent'
 
-ReactDOM.render(<WithFunction />, document.getElementById('root'))
+ReactDOM.render(<Parent />, document.getElementById('root'))
