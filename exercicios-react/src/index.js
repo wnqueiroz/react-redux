@@ -8,12 +8,12 @@ ReactDOM.render(
   <>
     <Family lastname="Queiroz">
       <Child name="William" />
-      {/* <Child name="Willidi" />
-      <Child name="Ellidiam" /> */}
+      <Child name="Willidi" />
+      <Child name="Ellidiam" />
     </Family>
     <Family lastname="Rodrigues">
       <Child name="Bianca" />
-      {/* <Child name="Pedro" /> */}
+      <Child name="Pedro" />
     </Family>
   </>,
   document.getElementById('root')
