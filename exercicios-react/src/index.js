@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { ClassComponent } from './components/ClassComponent'
+import { Counter } from './components/Counter'
 
-ReactDOM.render(
-  <ClassComponent value="Hi! Class!" />,
-  document.getElementById('root')
-)
+ReactDOM.render(<Counter number="0" />, document.getElementById('root'))
