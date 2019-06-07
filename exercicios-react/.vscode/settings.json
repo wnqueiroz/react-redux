@@ -2,5 +2,8 @@
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
   "eslint.enable": true,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  }
 }
